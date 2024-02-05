@@ -13,10 +13,6 @@ class Square:
         """defines the area of Square"""
         return self.__size ** 2
 
-    def position(self):
-        """defines the position of square"""
-        return self.__position
-        
     def my_print(self):
         """Prints the square"""
         if self.size == 0:
