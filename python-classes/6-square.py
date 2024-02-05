@@ -15,7 +15,7 @@ class Square:
 
     def position(self):
         """defines the position of square"""
-        self.__position
+        return self.__position
         
     def my_print(self):
         """Prints the square"""
