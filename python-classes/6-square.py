@@ -21,7 +21,7 @@ class Square:
             position = self.position
             if position[1] > 0:
                 for i in range(position[1]):
-                    print()
+                    print("")
             for i in range(self.size):
                 print(" " * position[0] + "#" * self.size)
 
