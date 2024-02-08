@@ -20,7 +20,7 @@ class Rectangle:
             raise ValueError("width must be >= 0")
         self.__height = height
         self.__width = width
-        Rectangle.number_of_instances += 1
+        self.number_of_instances += 1
 
     @property
     def width(self):
@@ -76,7 +76,7 @@ class Rectangle:
     def __del__(self):
         """deletes an instance of Rectangle"""
         print("Bye rectangle...")
-        Rectangle.number_of_instances -= 1
+        self.number_of_instances -= 1
 
     def bigger_or_equal(rect_1, rect_2):
         """returns the biggest rectangle based on the area"""
@@ -94,4 +94,5 @@ class Rectangle:
     @classmethod
     def square(cls, size=0):
         """returns new instance of Rectangle as Square"""
+
         return cls(size, size)
