@@ -1,66 +1,81 @@
-# The "7-base_geometry" module
-# ======================
+The "7-base_geometry" module
+============================
 
-# Using "BaseGeometry"
-# --------------
+Using "BaseGeometry"
+--------------------
 
-# Test file for the class method integer_validator. First import BaseGeometry from the 7-base_geometry module.
-# Then create an instance of BaseGeometry.
+First import BaseGeometry from the 7-base_geometry module:
 
->>> bg = BaseGeometry()
+     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
-# Float check
-# Test for validating a float value.
+Then create an instance of BaseGeometry.
 
->>> bg.integer_validator("name", "3,14")
-Traceback (most recent call last):
-...
-TypeError: 'name' must be an integer
+    >>> bg = BaseGeometry()
+    
+    # Float check
+    # Test for validating a float value.
 
-# String check
-# Test for validating a string value.
+    >>> bg.integer_validator("name", 3,14)
+    Traceback (most recent call last):
+    ...
+    TypeError: name must be an integer
 
->>> bg.integer_validator("name", "striiiing")
-Traceback (most recent call last):
-...
-TypeError: 'name' must be an integer
+    # String check
+    # Test for validating a string value.
 
-# Zero value check
-# Test for validating a zero value.
+    >>> bg.integer_validator("name", "striiiing")
+    Traceback(most recent call last):
+    ...
+    TypeError: 'name' must be an integer
 
->>> bg.integer_validator("name", "0")
-Traceback (most recent call last):
-...
-ValueError: 'name' must be greater than 0
+    # Zero value check
+    # Test for validating a zero value.
 
-# Negative value check
-# Test for validating a negative value.
+    >>> bg.integer_validator("name", 0)
+    Traceback (most recent call last):
+    ...
+    ValueError: name must be greater than 0
+    
+    # Combinated types
+    # Test for validating a combination of types.
 
->>> bg.integer_validator("name", "-47")
-Traceback (most recent call last):
-...
-ValueError: 'name' must be greater than 0
+    >>> bg.integer_validator("name", "10j")
+    Traceback(most recent call last):
+    ...
+    TypeError: 'name' must be an integer
 
-# Combinated types
-# Test for validating a combination of types.
+    # Negative value check
+    # Test for validating a negative value.
 
->>> bg.integer_validator("name", "10j")
-Traceback (most recent call last):
-...
-TypeError: 'name' must be an integer
+    >>> bg.integer_validator("name", -47)
+    Traceback (most recent call last):
+    ...
+    ValueError: name must be greater than 0
 
-# One argument
-# Test for validating when only one argument is passed.
+    # One argument
+    # Test for validating when only one argument is passed.
 
->>> bg.integer_validator("name")
-Traceback (most recent call last):
-...
-TypeError: integer_validator() missing 1 required positional argument: 'value'
+    >>> bg.integer_validator("name")
+    Traceback (most recent call last):
+    ...
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
 
-# Extra arguments
-# Test for validating when extra arguments are passed.
+    # Extra arguments
+    # Test for validating when extra arguments are passed.
 
->>> bg.integer_validator("name", "4", "7")
-Traceback (most recent call last):
-...
-TypeError: integer_validator() only takes 2 positional arguments, more was passed.
+    >>> bg.integer_validator("name", 4, 7)
+    Traceback (most recent call last):
+    ...
+    TypeError: integer_validator() only takes 2 arguments but more  was passed.
+
+    >>> len(__import__('7-base_geometry').__doc__) > 1
+    True
+
+    >>> len(__import__('7-base_geometry').BaseGeometry.__doc__) > 1
+    True
+
+    >>> len(__import__('7-base_geometry').BaseGeometry.area.__doc__) > 1
+    True
+
+    >>> len(__import__('7-base_geometry').BaseGeometry.integer_validator.__doc__) > 1
+    True
